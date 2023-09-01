@@ -26,9 +26,9 @@ jobs:
         key: ${{ env.TOOLKIT }}
 
     # download Coverity only if cache-hit from above is not true
-    - Coverity Download
+    - name: Coverity Download
       if: ${{ steps.cache-coverity.outputs.cache-hit != 'true' }}
-      run:|
+      run: |
         echo "mkdir $RUNNER_TEMP/$TOOLKIT"
         mkdir -p $RUNNER_TEMP/$TOOLKIT
 
