@@ -11,7 +11,7 @@ jobs:
     runs-on: [self-hosted, X64, ubuntu]
 
     env:
-      COVERITY_URL:${{ secrets.COV_URL }}
+      COVERITY_URL: ${{ secrets.COV_URL }}
       TOOLKIT: cov-analysis-linux64-2023.6.0
 
     steps:
