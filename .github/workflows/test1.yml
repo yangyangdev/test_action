@@ -19,7 +19,7 @@ jobs:
     - name: Make directory
       run: |
         echo "Make directory: mkdir $RUNNER_TEMP/$TOOLKIT"
-        mkdir -p $RUNNER_TEMP/$TOOLKIT
+        mkdir -p $RUNNER_TEMP/$TOOLKIT/$TOOLKIT
 
     - name: Cache Coverity Toolkit
       id: cache-coverity
