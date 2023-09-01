@@ -1,0 +1,36 @@
+name: build
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  coverity:
+    runs-on: ubuntu-latest
+
+    env:
+      COVERITY_URL: ${{ secrets.COV_URL }}
+      TOOLKIT: cov-analysis-linux64-2023.6.0
+
+    steps:
+    - name: Checkout Source
+      uses: actions/checkout@v3
+
+    - name: Cache Coverity Toolkit
+      id: cache-coverity
+      uses: actions/cache@v3
+      with:
+        path: ${{ runner.temp }}/${{ env.TOOLKIT }}
+        key: ${{ env.TOOLKIT }}
+
+    # download Coverity only if cache-hit from above is not true
+    - name: Coverity Download
+      if: ${{ steps.cache-coverity.outputs.cache-hit != 'true' }}
+      run: |
+        echo "mkdir $RUNNER_TEMP/$TOOLKIT"
+        mkdir -p $RUNNER_TEMP/$TOOLKIT
+
+    - name: OS information
+      run: |
+        cat /etc/os-release
+              
