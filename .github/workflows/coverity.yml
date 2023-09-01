@@ -8,7 +8,7 @@ on:
 
 jobs:
   coverity:
-    runs-on: [self-hosted, X64, ubuntu]
+    runs-on: [self-hosted, X64]
 
     env:
       COVERITY_URL: ${{ secrets.COV_URL }}
