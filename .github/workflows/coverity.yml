@@ -19,8 +19,8 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Cache Coverity Toolkit
-      id:cache-coverity
-      uses:actions/cache@v3
+      id: cache-coverity
+      uses: actions/cache@v3
       with:
         path: ${{ runner.temp }}/${{ env.TOOLKIT }}
         key: ${{ env.TOOLKIT }}
