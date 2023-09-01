@@ -3,7 +3,7 @@ name: coverity-cache-toolkit
 
 on:
   push:
-    branches:[main]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
